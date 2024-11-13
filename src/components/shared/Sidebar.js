@@ -19,14 +19,14 @@ const Sidebar = () => {
           {DASHBOARD_SIDEBAR_BOTTOM_LINKS.map((item)=>(
             <div>
               <SidebarLink key={item.key} item={item} />
-              <div className=''>
-                <span>
-                <HiOutlineLogout className='text-lg text-white hover:text-red-500 transition-all ease-in-out' />
-                </span>
-                Logout
-              </div>
             </div>
           ))}
+          <div className='flex items-center text-lg px-3 py-4 gap-2 text-red-500 transition-all ease-in-out'>
+            <span>
+              <HiOutlineLogout className='' />
+            </span>
+            Logout
+          </div>
         </div>
     </div>
   )
