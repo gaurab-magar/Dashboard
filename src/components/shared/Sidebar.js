@@ -21,7 +21,7 @@ const Sidebar = () => {
               <SidebarLink key={item.key} item={item} />
             </div>
           ))}
-          <div className='flex items-center text-lg px-3 py-4 gap-2 text-red-500 transition-all ease-in-out'>
+          <div className='flex items-center text-lg px-3 py-2 gap-2 text-red-500 transition-all ease-in-out cursor-pointer hover:bg-neutral-700'>
             <span>
               <HiOutlineLogout className='' />
             </span>
