@@ -26,7 +26,7 @@ function App() {
           <Route path='/settings' element={<Setting />} />
           <Route path='/support' element={<Support />} />
         </Route>
-          <Route path='/login' element={<LoginPage/>} />
+          <Route path='/login' element={<LogiPage/>} />
           <Route path='/register' element={<Register />} />
       </Routes>
     </Router>
