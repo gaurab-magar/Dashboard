@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import { Popover, PopoverButton, PopoverPanel , Transition} from '@headlessui/react';
-import {HiOutlineBell, HiOutlineChatAlt, HiOutlineSearch} from 'react-icons/hi';
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import {HiOutlineBell, HiOutlineChatAlt, HiOutlineSearch, HiOutlineUser} from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 const Header = () => {
   return (
     <div className='bg-white h-16 px-4 flex justify-between items-center border-b borer-grey-600 shadow '>
@@ -10,7 +12,7 @@ const Header = () => {
         </div>
         <div className='flex items-center justify-center gap-2 p-3 mr-2'>
           <Popover className="relative">
-            <PopoverButton className='p-2 rounded-md hover:bg-gray-200 active:bg-gray-300 focus:outline-none hover:scale-105 cursor-pointer'>
+            <PopoverButton className='p-2 rounded-full hover:bg-gray-200 active:bg-gray-300 focus:outline-none hover:scale-105 cursor-pointer'>
               <HiOutlineChatAlt fontSize={24} className=' text-gray-700 ' />
             </PopoverButton>
             <Transition 
@@ -28,7 +30,7 @@ const Header = () => {
             </Transition>
           </Popover>
           <Popover className="relative">
-            <PopoverButton className='p-2 rounded-md hover:bg-gray-200 active:bg-gray-300 focus:outline-none cursor-pointer hover:scale-105'>
+            <PopoverButton className='p-2 rounded-full hover:bg-gray-200 active:bg-gray-300 focus:outline-none cursor-pointer hover:scale-105'>
               <HiOutlineBell fontSize={24} className='text-gray-700' />
             </PopoverButton>
             <Transition 
@@ -45,6 +47,28 @@ const Header = () => {
               </PopoverPanel>
             </Transition>
           </Popover>
+          <Menu>
+            <MenuButton className='p-2 hover:bg-gray-200 active:bg-gray-300 rounded-full focus:outline-none hover:scale-105 cursor-pointer'>
+              <HiOutlineUser fontSize={24} className=' text-gray-700 ' />
+            </MenuButton>
+            <MenuItems anchor="bottom"  className="absolute z-10 w-48 bg-white rounded-md shadow-lg p-4 -translate-x-5 translate-y-3 md:-translate-x-10 ">
+              <MenuItem>
+                <Link className="block hover: no-underline  hover:bg-gray-300 p-2 rounded-md font-semibold text-black" to="/settings">
+                  Settings
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link className="block hover:bg-gray-300 p-2 rounded-md font-semibold text-black" to="/support">
+                  Support
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link className="block hover:bg-gray-300 p-2 rounded-md font-semibold text-black" to="/login">
+                  Sign Out
+                </Link>
+              </MenuItem>
+            </MenuItems>
+          </Menu>
         </div>
     </div>
   )
