@@ -1,11 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import DashboardStatcGrid from './DashboardStatcGrid'
+import TransactionCharts from './TransactionCharts'
 
 const Dashboard = () => {
   return (
-    <div>Dashboard <Link className='underline' to={'/products'}>click here to navigate to Products page</Link>
-    <h1>this is Dashboard for the admin page for gaurab thapa magar and now i have write</h1>
-     </div>
+   <div>
+      <DashboardStatcGrid />
+      <TransactionCharts />
+   </div>
   )
 }
 

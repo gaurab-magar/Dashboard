@@ -51,15 +51,15 @@ const Header = () => {
             <MenuButton className='p-2 hover:bg-gray-200 active:bg-gray-300 rounded-full focus:outline-none hover:scale-105 cursor-pointer'>
               <HiOutlineUser fontSize={24} className=' text-gray-700 ' />
             </MenuButton>
-            <MenuItems anchor="bottom"  className="absolute z-10 w-48 bg-white rounded-md shadow-lg p-4 -translate-x-5 translate-y-3 md:-translate-x-10 ">
+            <MenuItems anchor="bottom"  className="absolute z-10 w-48 bg-white rounded-md shadow-lg p-2 -translate-x-5 translate-y-3 md:-translate-x-10 ">
               <MenuItem>
                 <Link className="block hover: no-underline  hover:bg-gray-300 p-2 rounded-md font-semibold text-black" to="/settings">
-                  Settings
+                  your profile
                 </Link>
               </MenuItem>
               <MenuItem>
                 <Link className="block hover:bg-gray-300 p-2 rounded-md font-semibold text-black" to="/support">
-                  Support
+                  Settings
                 </Link>
               </MenuItem>
               <MenuItem>
