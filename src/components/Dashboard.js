@@ -2,6 +2,8 @@ import React from 'react'
 import DashboardStatcGrid from './DashboardStatcGrid'
 import TransactionCharts from './TransactionCharts'
 import BuyerProfileChart from './BuyerProfileChart'
+import RecentOrders from './RecentOrders'
+import PopularProducts from './PopularProducts'
 
 const Dashboard = () => {
   return (
@@ -10,6 +12,10 @@ const Dashboard = () => {
       <div className='flex flex-row gap-4 w-full' >
         <TransactionCharts />
         <BuyerProfileChart />
+      </div>
+      <div className='flex flex-row gap-4 w-full' >
+          <RecentOrders />
+          <PopularProducts />
       </div>
    </div>
   )
