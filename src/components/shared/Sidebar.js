@@ -2,6 +2,8 @@ import React from 'react'
 import { DASHBOARD_SIDEBAR_BOTTOM_LINKS, DASHBOARD_SIDEBAR_LINKS } from '../../lib/consts/navigation'
 import { Link, useLocation } from 'react-router-dom';
 import { HiOutlineLogout } from 'react-icons/hi';
+import { IoTrendingUpSharp } from "react-icons/io5";
+
 
 
 const linkClassesActive = 'flex items-center gap-2 font-light px-3 py-2 hover:bg-neutral-700 hover:no-underline active:bg-neutral-600 rounded-sm font-bold text-white hover:text-white transition-all ease-in-out'
@@ -9,7 +11,10 @@ const linkClasses = 'flex items-center gap-2 font-light px-3 py-2 hover:bg-neutr
 const Sidebar = () => {
   return (
     <div className='flex flex-col bg-neutral-900 w-70 p-4 text-white'>
-        <div className='mb-3'>My Dashboard</div>
+      <div className='flex flex-row items-center gap-4 p-4 font-bold text-green-600'>
+        <IoTrendingUpSharp size={24} />
+        <div className=''>GT-Portal</div>
+      </div>
         <div className='flex-1 flex flex-col gap-0.5 py-8'>
             {DASHBOARD_SIDEBAR_LINKS.map((item)=>(
               <SidebarLink key={item.key} item={item} />
