@@ -28,7 +28,7 @@ const PopularProductData = [
     id: '6745',
     product_name: 'Dell XPS 13',
     product_price: '$999.99',
-    product_stock: 143,
+    product_stock: 0,
     product_image: 'https://images.unsplash.com/photo-1557180295-76eee20ae8aa?w=500&q=80',
   },
   {
@@ -49,7 +49,7 @@ const PopularProductData = [
     id: '9123',
     product_name: 'Google Pixel 7 Pro',
     product_price: '$899.00',
-    product_stock: 176,
+    product_stock: 0,
     product_image: 'https://images.unsplash.com/photo-1668834860184-69ebc6d0756d?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {

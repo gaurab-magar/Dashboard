@@ -1,77 +1,112 @@
 import React, { Fragment } from 'react';
-import { Popover, PopoverButton, PopoverPanel , Transition} from '@headlessui/react';
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import {HiOutlineBell, HiOutlineChatAlt, HiOutlineSearch, HiOutlineUser} from 'react-icons/hi';
+import { Popover, PopoverButton, PopoverPanel, Transition } from '@headlessui/react';
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import { HiOutlineBell, HiOutlineChatAlt, HiOutlineMenu, HiOutlineSearch, HiOutlineUser } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
-const Header = () => {
+
+const Header = ({ toggleSidebar }) => {
   return (
-    <div className='bg-white h-16 px-4 flex justify-between items-center border-b borer-grey-600 shadow '>
-        <div className='relative'>
-          <HiOutlineSearch className='absolute top-1/2 -translate-y-1/2 end-1 pr-3 text-3xl text-gray-600 cursor-pointer hover:scale-105' />
-            <input type='text' placeholder='Search...' className='text-sm focus:outline-none active:outline-none h-10 w-96 border border-gray-300 rounded-md px-4' />
-        </div>
-        <div className='flex items-center justify-center gap-2 p-3 mr-2'>
-          <Popover className="relative">
-            <PopoverButton className='p-2 rounded-full hover:bg-gray-200 active:bg-gray-300 focus:outline-none hover:scale-105 cursor-pointer'>
-              <HiOutlineChatAlt fontSize={24} className=' text-gray-700 ' />
-            </PopoverButton>
-            <Transition 
-              as={Fragment}
-              enter='transition ease-out duration-200'
-              enterFrom='transform opacity-0 translate-y-1'
-              enterTo='transform opacity-100 translate-y-0'
-              leave='transition ease-in duration-150'
-              leaveFrom='transform opacity-100 translate-y-0'
-              leaveTo='transform opacity-0 translate-y-1'
-            >
-              <PopoverPanel anchor="bottom" className="absolute z-10 w-80 bg-white rounded-md shadow-lg p-4 -translate-x-5 translate-y-3 md:-translate-x-10 ">
-                  this is the messages
-              </PopoverPanel>
-            </Transition>
-          </Popover>
-          <Popover className="relative">
-            <PopoverButton className='p-2 rounded-full hover:bg-gray-200 active:bg-gray-300 focus:outline-none cursor-pointer hover:scale-105'>
-              <HiOutlineBell fontSize={24} className='text-gray-700' />
-            </PopoverButton>
-            <Transition 
-              as={Fragment}
-              enter='transition ease-out duration-200'
-              enterFrom='transform opacity-0 translate-y-1'
-              enterTo='transform opacity-100 translate-y-0'
-              leave='transition ease-in duration-150'
-              leaveFrom='transform opacity-100 translate-y-0'
-              leaveTo='transform opacity-0 translate-y-1'
-            >
-              <PopoverPanel anchor="bottom" className="absolute z-10 w-80 bg-white rounded-md shadow-lg p-4 -translate-x-5 translate-y-3 md:-translate-x-10 ">
-                this is the notifications 
-              </PopoverPanel>
-            </Transition>
-          </Popover>
-          <Menu>
-            <MenuButton className='p-2 hover:bg-gray-200 active:bg-gray-300 rounded-full focus:outline-none hover:scale-105 cursor-pointer'>
-              <HiOutlineUser fontSize={24} className=' text-gray-700 ' />
-            </MenuButton>
-            <MenuItems anchor="bottom"  className="absolute z-10 w-48 bg-white rounded-md shadow-lg p-2 -translate-x-5 translate-y-3 md:-translate-x-10 ">
-              <MenuItem>
-                <Link className="block hover: no-underline  hover:bg-gray-300 p-2 rounded-md font-semibold text-black" to="/settings">
-                  your profile
+    <div className="bg-white h-16 px-4 py-4 flex justify-between items-center border-b border-gray-300 shadow">
+      {/* Hamburger Menu */}
+      <div className="lg:hidden">
+        <button className="text-black" onClick={toggleSidebar}>
+          <HiOutlineMenu size={24} />
+        </button>
+      </div>
+
+      {/* Search Bar */}
+      <div className="relative w-full lg:w-1/2 mx-2 hidden md:flex">
+        <HiOutlineSearch className="absolute top-1/2 -translate-y-1/2 right-4 text-xl text-gray-600 cursor-pointer" />
+        <input
+          type="text"
+          placeholder="Search..."
+          className="w-full h-10 text-sm focus:outline-none border border-gray-300 rounded-md px-4"
+        />
+      </div>
+
+      {/* Icons Section */}
+      <div className="flex items-center justify-end gap-4 sm:gap-2">
+        {/* Chat Icon */}
+        <Popover className="relative">
+          <PopoverButton className="p-2 rounded-full hover:bg-gray-200 active:bg-gray-300 focus:outline-none cursor-pointer">
+            <HiOutlineChatAlt fontSize={24} className="text-gray-700" />
+          </PopoverButton>
+          <Transition
+            as={Fragment}
+            enter="transition ease-out duration-200"
+            enterFrom="transform opacity-0 translate-y-1"
+            enterTo="transform opacity-100 translate-y-0"
+            leave="transition ease-in duration-150"
+            leaveFrom="transform opacity-100 translate-y-0"
+            leaveTo="transform opacity-0 translate-y-1"
+          >
+            <PopoverPanel className="absolute z-10 w-80 bg-white rounded-md shadow-lg p-4 right-0 translate-y-3">
+              This is the messages
+            </PopoverPanel>
+          </Transition>
+        </Popover>
+
+        {/* Notification Icon */}
+        <Popover className="relative">
+          <PopoverButton className="p-2 rounded-full hover:bg-gray-200 active:bg-gray-300 focus:outline-none cursor-pointer">
+            <HiOutlineBell fontSize={24} className="text-gray-700" />
+          </PopoverButton>
+          <Transition
+            as={Fragment}
+            enter="transition ease-out duration-200"
+            enterFrom="transform opacity-0 translate-y-1"
+            enterTo="transform opacity-100 translate-y-0"
+            leave="transition ease-in duration-150"
+            leaveFrom="transform opacity-100 translate-y-0"
+            leaveTo="transform opacity-0 translate-y-1"
+          >
+            <PopoverPanel className="absolute z-10 w-80 bg-white rounded-md shadow-lg p-4 right-0 translate-y-3">
+              This is the notifications
+            </PopoverPanel>
+          </Transition>
+        </Popover>
+
+        {/* Profile Menu */}
+        <Menu as="div" className="relative">
+          <MenuButton className="p-2 rounded-full hover:bg-gray-200 active:bg-gray-300 focus:outline-none cursor-pointer">
+            <HiOutlineUser fontSize={24} className="text-gray-700" />
+          </MenuButton>
+          <MenuItems className="absolute right-0 z-10 w-48 bg-white rounded-md shadow-lg p-2 mt-2">
+            <MenuItem>
+              {({ active }) => (
+                <Link
+                  to="/settings"
+                  className={`block px-4 py-2 text-sm ${active ? 'bg-gray-100' : ''}`}
+                >
+                  Your Profile
                 </Link>
-              </MenuItem>
-              <MenuItem>
-                <Link className="block hover:bg-gray-300 p-2 rounded-md font-semibold text-black" to="/support">
+              )}
+            </MenuItem>
+            <MenuItem>
+              {({ active }) => (
+                <Link
+                  to="/support"
+                  className={`block px-4 py-2 text-sm ${active ? 'bg-gray-100' : ''}`}
+                >
                   Settings
                 </Link>
-              </MenuItem>
-              <MenuItem>
-                <Link className="block hover:bg-gray-300 p-2 rounded-md font-semibold text-black" to="/login">
+              )}
+            </MenuItem>
+            <MenuItem>
+              {({ active }) => (
+                <Link
+                  to="/login"
+                  className={`block px-4 py-2 text-sm ${active ? 'bg-gray-100' : ''}`}
+                >
                   Sign Out
                 </Link>
-              </MenuItem>
-            </MenuItems>
-          </Menu>
-        </div>
+              )}
+            </MenuItem>
+          </MenuItems>
+        </Menu>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

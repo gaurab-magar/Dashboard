@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Header from './Header';
 import Footer from './Footer';
 
 const Layout = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  function toggleSidebar (){
+    setIsSidebarOpen(!isSidebarOpen)
+  }
   return (
     <>
       <div className="flex flex-row bg-neutral-300 h-screen w-full overflow-x-hidden">
-        <Sidebar />
+        <Sidebar toggleSidebar={toggleSidebar} isOpen={isSidebarOpen} />
           <div className="flex-1 flex flex-col">
-            <Header />
+            <Header toggleSidebar={toggleSidebar} />
             <div className="flex-1 p-4">
               <Outlet />
             </div>
