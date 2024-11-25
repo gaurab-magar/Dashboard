@@ -30,7 +30,7 @@ export default DashboardStatcGrid
 
 function BoxWrapper({children}){
     return (
-        <div className='bg-white p-3 rounded-md border-gray-300 flex-1 shadow-md flex items-center gap-4'>
+        <div className='bg-white p-3 rounded-md border-gray-300 flex-1 shadow-md flex items-center gap-4 hover:scale-105 transition-all ease-in-out duration-300 transform cursor-pointer'>
             {children}
         </div>
     )

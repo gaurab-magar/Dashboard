@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import Ttitle from './shared/Ttitle';
+import getOrderStatus from '../lib/consts/Utils/getOrderStatus';
 
 const RecentDate = [
     {
@@ -35,7 +37,7 @@ const RecentDate = [
       customer_id: '56432',
       customer_name: 'John M. Doe',
       order_total: '$310.25',
-      current_order_status: 'PLACED',
+      current_order_status: 'CANCLED',
       Shipment_address: 'Chicago, IL 60601',
     },
     {
@@ -79,9 +81,9 @@ const RecentDate = [
 const RecentOrders = () => {
   return (
     <div className='bg-white p-4 rounded-md border-gray-200 border flex-1'>
-      <strong className='font-medium text-gray-700' >Recents Orders</strong>
+         <Ttitle>Recent Orders</Ttitle>
       <div className='mt-3'>
-          <table className='w-full'>
+          <table className='w-full text-gray-700 border-x border-gray-200 rounded-sm'>
             <thead>
               <tr>
                 <th>ID</th>
@@ -97,12 +99,12 @@ const RecentOrders = () => {
               {RecentDate.map((item)=>(
                 <tr key={item.customer_id} className='font-extralight'>
                     <td>#{item.id}</td>
-                    <td><Link to={`/product/${item.product_id}`}>{item.product_id}</Link></td>
-                    <td><Link to={`/customer/${item.customer_name}`} >{item.customer_name}</Link></td>
+                    <td className='font-semibold text-blue-500' ><Link to={`/product/${item.product_id}`}>{item.product_id}</Link></td>
+                    <td className='font-semibold text-blue-500' ><Link to={`/customer/${item.customer_name}`} >{item.customer_name}</Link></td>
                     <td>{item.customer_id}</td>
                     <td>{item.order_total}</td>
                     <td>{item.Shipment_address}</td>
-                    <td>{item.current_order_status}</td>
+                    <td>{ getOrderStatus (item.current_order_status)}</td>
                 </tr>
                 ))}
             </tbody>

@@ -10,7 +10,7 @@ const linkClassesActive = 'flex items-center gap-2 font-light px-3 py-2 hover:bg
 const linkClasses = 'flex items-center gap-2 font-light px-3 py-2 hover:bg-neutral-700 hover:no-underline active:bg-neutral-600 rounded-sm text-base text-gray-300 hover:text-gray-300'
 const Sidebar = () => {
   return (
-    <div className='flex flex-col bg-neutral-900 w-70 p-4 text-white'>
+    <div className='flex flex-col bg-neutral-900 w-64 h-screen p-4 text-white'>
       <div className='flex flex-row items-center gap-4 p-4 font-bold text-green-600'>
         <IoTrendingUpSharp size={24} />
         <div className=''>GT-Portal</div>
