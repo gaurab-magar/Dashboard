@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
-import Header from './Header';
+// import Header from './Header';
 import Footer from './Footer';
+import ResponsiveNavbar from './Navbar';
 
 const Layout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -13,9 +14,10 @@ const Layout = () => {
   return (
     <>
       <div className="flex flex-row bg-neutral-300 h-screen w-full overflow-x-hidden">
-        <Sidebar toggleSidebar={toggleSidebar} isOpen={isSidebarOpen} />
+        <Sidebar className='hidden md:flex' toggleSidebar={toggleSidebar} isOpen={isSidebarOpen} />
           <div className="flex-1 flex flex-col">
-            <Header toggleSidebar={toggleSidebar} />
+            <ResponsiveNavbar />
+            {/* <Header toggleSidebar={toggleSidebar} /> */}
             <div className="flex-1 p-4">
               <Outlet />
             </div>
