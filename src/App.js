@@ -3,7 +3,6 @@ import './App.css';
 import Layout from './components/shared/Layout';
 import Dashboard from './components/Dashboard';
 import Products from './components/Products';
-import Customers from './Pages/Customers';
 import Message from './Pages/Message';
 import Tranjaction from './Pages/Tranjaction';
 import Orders from './Pages/Orders';
@@ -11,6 +10,7 @@ import Setting from './Pages/Setting';
 import Support from './Pages/Support';
 import Register from './Auth/Register';
 import LoginPage from './Auth/LoginPage';
+import ProfileForm from './Auth/ProfileForm';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Dashboard/>}></Route>
           <Route path='/products' element={<Products/>}></Route>
-          <Route path='/customers' element={<Customers />} />
+          <Route path='/ProfileForm' element={<ProfileForm />} />
           <Route path='/messages' element={<Message />} />
           <Route path='/transactions' element={<Tranjaction />} />
           <Route path='/orders' element={<Orders />} />
